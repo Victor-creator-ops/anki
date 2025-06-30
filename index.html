@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <div class="container mx-auto p-4 md:p-6 max-w-5xl">
+    <div class="container mx-auto p-4 md:p-6 max-w-5xl mb-24">
         <header class="flex flex-col md:flex-row justify-between items-center mb-6">
             <h1 class="text-3xl font-bold text-indigo-600 mb-4 md:mb-0">
                 <i class="fas fa-layer-group mr-2"></i>Anki Web Local
@@ -291,8 +291,26 @@
     </div>
     
     <!-- Pomodoro Timer -->
-    <div id="pomodoro-widget" class="fixed bottom-4 right-4 bg-white p-4 rounded-lg shadow-2xl w-64">
-        <h4 class="font-bold text-center mb-2">Cronômetro Pomodoro</h4>
+    <div id="pomodoro-widget" class="fixed bottom-4 right-4 bg-white p-4 rounded-lg shadow-2xl w-64 z-20">
+        <div class="flex justify-between items-center mb-2">
+            <h4 class="font-bold">Cronômetro Pomodoro</h4>
+            <button id="pomodoro-settings-toggle" class="text-gray-500 hover:text-indigo-600"><i class="fas fa-cog"></i></button>
+        </div>
+        <div id="pomodoro-settings" class="hidden mb-3 space-y-2 border-t pt-3">
+             <div class="flex items-center justify-between text-sm">
+                <label for="foco-input">Foco (min):</label>
+                <input type="number" id="foco-input" class="w-20 p-1 border-gray-300 rounded-md">
+            </div>
+            <div class="flex items-center justify-between text-sm">
+                <label for="pausa-input">Pausa (min):</label>
+                <input type="number" id="pausa-input" class="w-20 p-1 border-gray-300 rounded-md">
+            </div>
+            <div class="flex items-center justify-between text-sm">
+                <label for="descanso-input">Descanso (min):</label>
+                <input type="number" id="descanso-input" class="w-20 p-1 border-gray-300 rounded-md">
+            </div>
+            <button id="pomodoro-save-settings" class="w-full bg-indigo-500 text-white text-xs py-1 rounded-md mt-2 hover:bg-indigo-600">Salvar Tempos</button>
+        </div>
         <div id="pomodoro-time" class="text-5xl font-mono text-center py-2 bg-gray-100 rounded">25:00</div>
         <div class="flex justify-around mt-3">
             <button data-mode="pomodoro" class="pomodoro-mode-btn bg-indigo-500 text-white px-2 py-1 text-xs rounded-full shadow">Foco</button>
@@ -302,6 +320,23 @@
         <div class="flex justify-center space-x-4 mt-3">
             <button id="pomodoro-start-pause" class="text-indigo-600 text-2xl"><i class="fas fa-play"></i></button>
             <button id="pomodoro-reset" class="text-gray-500 text-2xl"><i class="fas fa-redo"></i></button>
+        </div>
+    </div>
+
+    <!-- Music Player Widget -->
+    <div id="music-widget" class="fixed bottom-4 left-4 bg-white rounded-lg shadow-2xl w-80 z-20 transition-all duration-300">
+        <div id="music-widget-header" class="flex justify-between items-center p-2 cursor-pointer">
+            <h4 class="font-bold text-sm"><i class="fas fa-music mr-2"></i>Música de Fundo</h4>
+            <button id="music-toggle-btn" class="text-gray-500"><i class="fas fa-chevron-up"></i></button>
+        </div>
+        <div id="music-widget-content" class="p-2 border-t hidden">
+            <div class="mb-2 aspect-w-16 aspect-h-9">
+                <iframe id="youtube-player" width="100%" height="150" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="flex justify-around">
+                <button data-src="https://www.youtube.com/embed/jfKfPfyJRdk" class="music-source-btn bg-indigo-500 text-white text-xs px-3 py-1 rounded-full shadow">Lofi</button>
+            </div>
+             <p class="text-xs text-gray-500 mt-2 text-center">Clique no play para iniciar a música.</p>
         </div>
     </div>
 
@@ -971,6 +1006,12 @@
             startPauseBtn: document.getElementById('pomodoro-start-pause'),
             resetBtn: document.getElementById('pomodoro-reset'),
             modeBtns: document.querySelectorAll('.pomodoro-mode-btn'),
+            settingsToggleBtn: document.getElementById('pomodoro-settings-toggle'),
+            settingsDiv: document.getElementById('pomodoro-settings'),
+            focoInput: document.getElementById('foco-input'),
+            pausaInput: document.getElementById('pausa-input'),
+            descansoInput: document.getElementById('descanso-input'),
+            saveSettingsBtn: document.getElementById('pomodoro-save-settings'),
             modes: {
                 pomodoro: 25,
                 shortBreak: 5,
@@ -1010,6 +1051,9 @@
             },
             
             toggleStartPause() {
+                if (Tone.context.state !== 'running') {
+                    Tone.context.resume();
+                }
                 if (this.isPaused) {
                     this.start();
                 } else {
@@ -1042,18 +1086,72 @@
                 synth.triggerAttackRelease("C5", "8n", Tone.now());
                 synth.triggerAttackRelease("G5", "8n", Tone.now() + 0.2);
             },
+            
+            loadSettings() {
+                const savedTimes = JSON.parse(localStorage.getItem('pomodoro_times'));
+                if (savedTimes) {
+                    this.modes.pomodoro = parseInt(savedTimes.pomodoro, 10) || 25;
+                    this.modes.shortBreak = parseInt(savedTimes.shortBreak, 10) || 5;
+                    this.modes.longBreak = parseInt(savedTimes.longBreak, 10) || 15;
+                }
+                this.focoInput.value = this.modes.pomodoro;
+                this.pausaInput.value = this.modes.shortBreak;
+                this.descansoInput.value = this.modes.longBreak;
+            },
+
+            saveSettings() {
+                this.modes.pomodoro = parseInt(this.focoInput.value, 10) || 25;
+                this.modes.shortBreak = parseInt(this.pausaInput.value, 10) || 5;
+                this.modes.longBreak = parseInt(this.descansoInput.value, 10) || 15;
+                localStorage.setItem('pomodoro_times', JSON.stringify(this.modes));
+                alert('Tempos salvos!');
+                this.setMode(this.currentMode);
+            },
 
             init() {
+                this.loadSettings();
                 this.startPauseBtn.addEventListener('click', () => this.toggleStartPause());
                 this.resetBtn.addEventListener('click', () => this.reset());
                 this.modeBtns.forEach(btn => {
                     btn.addEventListener('click', (e) => this.setMode(e.currentTarget.dataset.mode));
                 });
-                this.updateDisplay();
+                this.settingsToggleBtn.addEventListener('click', () => {
+                    this.settingsDiv.classList.toggle('hidden');
+                });
+                this.saveSettingsBtn.addEventListener('click', () => this.saveSettings());
+                this.setMode(this.currentMode);
             }
         };
 
         pomodoro.init();
+
+        // --- LÓGICA DO WIDGET DE MÚSICA ---
+        const musicWidgetHeader = document.getElementById('music-widget-header');
+        const musicWidgetContent = document.getElementById('music-widget-content');
+        const musicToggleBtn = document.getElementById('music-toggle-btn');
+        const youtubePlayer = document.getElementById('youtube-player');
+        const musicSourceBtns = document.querySelectorAll('.music-source-btn');
+
+        musicWidgetHeader.addEventListener('click', () => {
+            musicWidgetContent.classList.toggle('hidden');
+            musicToggleBtn.querySelector('i').classList.toggle('fa-chevron-up');
+            musicToggleBtn.querySelector('i').classList.toggle('fa-chevron-down');
+        });
+
+        musicSourceBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const newSrc = e.currentTarget.dataset.src;
+                youtubePlayer.src = newSrc;
+
+                musicSourceBtns.forEach(b => {
+                    b.classList.remove('bg-indigo-500', 'text-white');
+                    b.classList.add('bg-gray-300', 'text-gray-700');
+                });
+                e.currentTarget.classList.add('bg-indigo-500', 'text-white');
+                e.currentTarget.classList.remove('bg-gray-300', 'text-gray-700');
+            });
+        });
+
 
         // --- INICIALIZAÇÃO ---
         loadInitialData();
