@@ -1,0 +1,209 @@
+{
+  "cards": [
+    {
+      "id": "1751290310001",
+      "question": "Qual é a definição formal de Qualidade de Software?",
+      "answer": "É a conformidade a requisitos funcionais e de desempenho, a padrões de desenvolvimento claramente documentados e a características implícitas (como manutenibilidade) que são esperadas de todo software profissionalmente desenvolvido.",
+      "category": "Qualidade de Software"
+    },
+    {
+      "id": "1751290310002",
+      "question": "Qual técnica de extração de requisitos é mais adequada para uma empresa de médio porte, já estabelecida e com diversos grupos de usuários, como uma empresa de táxi aéreo precisando de um módulo de manutenção?",
+      "answer": "JAD (Joint Application Design), pois promove a cooperação entre os diversos usuários e desenvolvedores, acelerando a consolidação das visões de todos em sessões estruturadas.",
+      "category": "Técnicas de Extração"
+    },
+    {
+      "id": "1751290310003",
+      "question": "Diferencie Teste da Caixa Preta e Teste da Caixa Branca.",
+      "answer": "Teste da Caixa Preta foca na funcionalidade do software sem conhecer o código (testa entradas e saídas). Teste da Caixa Branca baseia-se na lógica interna e nos caminhos do código para garantir que todas as ramificações sejam testadas.",
+      "category": "Teste de Software"
+    },
+    {
+      "id": "1751290310004",
+      "question": "Quem são os responsáveis por realizar o Teste Alfa e o Teste Beta?",
+      "answer": "Teste Alfa: É realizado pela equipe de desenvolvimento no ambiente do fornecedor. Teste Beta: É realizado pelos usuários-chave (clientes) no ambiente real de uso, antes da liberação final.",
+      "category": "Teste de Software"
+    },
+    {
+      "id": "1751290310005",
+      "question": "Se um sistema entregue não corresponde ao que o cliente realmente precisava (conforme a ilustração da árvore e do balanço), qual fase do ciclo de vida falhou?",
+      "answer": "A fase de Análise de Requisitos. A falha ocorreu na comunicação, interpretação e especificação das necessidades do cliente.",
+      "category": "Extração de Requisitos"
+    },
+    {
+      "id": "1751290310006",
+      "question": "Por que a métrica de Ponto de Função (Function Point) é frequentemente preferida em vez de Linhas de Código (LOC)?",
+      "answer": "Porque o Ponto de Função mede a funcionalidade do software do ponto de vista do usuário, sendo independente da linguagem de programação. Isso oferece uma avaliação mais consistente da complexidade, produtividade e custo.",
+      "category": "Métricas de Software"
+    },
+    {
+      "id": "1751290310007",
+      "question": "O que é um Teste de Recuperação de Falhas e dê um exemplo.",
+      "answer": "É um teste que garante que o sistema pode se recuperar de falhas mantendo a consistência dos dados. Exemplo: Simular uma queda de energia durante uma transação para verificar se os dados não são corrompidos.",
+      "category": "Teste de Software"
+    },
+    {
+      "id": "1751290310008",
+      "question": "Quais são as 5 pessoas/papéis principais envolvidos em uma sessão JAD?",
+      "answer": "1. Líder de Sessão (facilitador); 2. Executor (toma decisões); 3. Representantes dos Usuários (explicam o negócio); 4. Desenvolvedores/Profissionais de TI (avaliam a viabilidade); 5. Especialista (conhecimento específico).",
+      "category": "Técnicas de Extração"
+    },
+    {
+      "id": "1751290310009",
+      "question": "O que significa a sigla PIECES, usada para análise e diagnóstico de sistemas?",
+      "answer": "Performance (Desempenho), Information (Informação), Economics (Economia), Control (Controle), Efficiency (Eficiência) e Service (Serviço).",
+      "category": "Técnicas de Extração"
+    },
+    {
+      "id": "1751290310010",
+      "question": "Qual é o objetivo de um Teste de Regressão?",
+      "answer": "Garantir que as alterações ou correções recentes no software não introduziram novos erros ou quebraram funcionalidades que já existiam e funcionavam corretamente.",
+      "category": "Teste de Software"
+    },
+    {
+      "id": "1751290310011",
+      "question": "Quais são os 4 tipos de manutenção de software?",
+      "answer": "1. Corretiva (corrige erros); 2. Adaptativa (adapta a novos ambientes ou S.O.); 3. Perfectiva/Evolutiva (melhora ou adiciona funcionalidades); 4. Preventiva (melhora a estrutura para evitar problemas futuros, como a reengenharia).",
+      "category": "Manutenção de Software"
+    },
+    {
+      "id": "1751290310012",
+      "question": "O que é o Teste de Ciclo de Negócio?",
+      "answer": "Garante que o sistema funciona apropriadamente durante um ciclo completo de atividades de negócio, verificando se, ao final do ciclo, todos os resultados esperados foram obtidos corretamente.",
+      "category": "Teste de Software"
+    },
+    {
+      "id": "1751290310013",
+      "question": "Quais são os 5 domínios de medida usados para calcular o Ponto de Função (FP)?",
+      "answer": "1. Número de entradas do usuário; 2. Número de saídas do usuário; 3. Número de consultas do usuário; 4. Número de arquivos lógicos internos; 5. Número de interfaces externas.",
+      "category": "Métricas de Software"
+    },
+    {
+      "id": "1751290310014",
+      "question": "Qual técnica de extração de requisitos é ideal quando o cliente não sabe exatamente o que quer e precisa gerar muitas ideias?",
+      "answer": "Brainstorming (Tempestade de Ideias). É uma técnica de grupo focada em gerar um grande volume de ideias sem críticas iniciais, que depois são filtradas e organizadas.",
+      "category": "Técnicas de Extração"
+    },
+    {
+      "id": "1751290310015",
+      "question": "No triângulo 'Custo x Tempo x Qualidade', o que acontece se você precisar aumentar significativamente a qualidade de um software?",
+      "answer": "Aumentar a qualidade geralmente exige mais tempo para desenvolvimento e testes, e mais recursos (pessoas, ferramentas), o que, consequentemente, aumenta o custo do projeto.",
+      "category": "Qualidade de Software"
+    },
+    {
+      "id": "1751290310016",
+      "question": "O que é um Teste de Carga (Load Test)?",
+      "answer": "Avalia a resposta do sistema em condições extremas, mas esperadas, de carga de informações, testando o comportamento do sistema nos limites de sua capacidade (ex: um sistema de e-commerce durante a Black Friday).",
+      "category": "Teste de Software"
+    },
+    {
+      "id": "1751290310017",
+      "question": "Qual a diferença fundamental entre Teste de Carga e Teste de Estresse?",
+      "answer": "O Teste de Carga avalia o desempenho sob picos de trabalho esperados. O Teste de Estresse força o sistema para além dos limites normais, usando condições anormais (pouca memória, falha de hardware) para ver como e quando ele falha.",
+      "category": "Teste de Software"
+    },
+    {
+      "id": "1751290310018",
+      "question": "Descreva o Nível 2 (Repetitivo) do CMMI.",
+      "answer": "No Nível 2, a organização possui técnicas básicas de gerência de projetos. Os processos dependem de pessoas específicas e não são padronizados em toda a organização, mas há um controle dos projetos com marcos bem definidos.",
+      "category": "Qualidade de Software"
+    },
+    {
+      "id": "1751290310019",
+      "question": "Qual é o principal objetivo de um plano de contingência na análise de riscos de um projeto?",
+      "answer": "Apontar, de maneira clara e objetiva, as ações e os responsáveis para lidar com um risco caso ele se concretize, visando minimizar seus efeitos negativos no projeto.",
+      "category": "Análise de Risco"
+    },
+    {
+      "id": "1751290310020",
+      "question": "O que é o Teste de Usabilidade (Usability Test)?",
+      "answer": "É um teste que foca nos fatores humanos, avaliando quão fácil, intuitivo e agradável o sistema é para o usuário final. Analisa a estética, consistência da interface, clareza, ajuda online e a experiência geral de uso.",
+      "category": "Teste de Software"
+    },
+    {
+      "id": "1751290310021",
+      "question": "Quais são as quatro fases de uma Entrevista estruturada para levantamento de requisitos?",
+      "answer": "1. Identificação dos candidatos a entrevistar; 2. Preparação para a entrevista (agendamento e roteiro); 3. Condução da entrevista; 4. Finalização e documentação (resumo e agradecimento).",
+      "category": "Técnicas de Extração"
+    },
+    {
+      "id": "1751290310022",
+      "question": "Qual o principal risco técnico em um projeto de software que envolve a integração com um hardware desconhecido?",
+      "answer": "O desconhecimento técnico sobre a comunicação dos dados entre o software e o hardware. Isso pode causar atrasos significativos e aumento de custos se a integração for mais complexa do que o previsto.",
+      "category": "Análise de Risco"
+    },
+    {
+      "id": "1751290310023",
+      "question": "O que representa o ciclo PDCA no contexto da qualidade de software?",
+      "answer": "É um método de gestão para controle e melhoria contínua de processos e produtos. A sigla significa: Plan (Planejar), Do (Executar), Check (Verificar) e Act (Agir/Corrigir).",
+      "category": "Qualidade de Software"
+    },
+    {
+      "id": "1751290310024",
+      "question": "Qual técnica de extração de requisitos é mais indicada para um projeto onde os usuários estão em locais geograficamente distantes?",
+      "answer": "Questionários. Eles permitem coletar informações de um grande número de pessoas em diferentes locais de forma eficiente, onde entrevistas ou sessões JAD seriam logisticamente inviáveis.",
+      "category": "Técnicas de Extração"
+    },
+    {
+      "id": "1751290310025",
+      "question": "Diferencie Teste de Unidade, Teste de Integração e Teste de Aceitação.",
+      "answer": "Teste de Unidade: Testa o menor componente lógico do sistema (um módulo, uma função). Teste de Integração: Testa as interfaces e a comunicação entre os módulos. Teste de Aceitação: Valida se o sistema completo atende aos requisitos do cliente.",
+      "category": "Teste de Software"
+    },
+    {
+      "id": "1751290310026",
+      "question": "O que é um 'Risco de Projeto'?",
+      "answer": "É um risco associado à gestão do projeto, como planejamento irreal, falta de recursos, estouro de orçamento ou problemas na equipe, que ameaçam o cronograma e o custo do projeto.",
+      "category": "Análise de Risco"
+    },
+    {
+      "id": "1751290310027",
+      "question": "Qual é a principal característica do Nível 3 (Definido) do CMMI?",
+      "answer": "No Nível 3, a organização possui um conjunto de processos de software padronizados e documentados que são seguidos em todos os projetos. Há uma 'cultura da participação' e visibilidade das atividades para todos.",
+      "category": "Qualidade de Software"
+    },
+    {
+      "id": "1751290310028",
+      "question": "Para que serve o Teste de Configuração?",
+      "answer": "Serve para assegurar que o software funciona corretamente em diferentes configurações de hardware e/ou software (ex: diferentes sistemas operacionais, navegadores, versões de bibliotecas).",
+      "category": "Teste de Software"
+    },
+    {
+      "id": "1751290310029",
+      "question": "O que é a métrica de 'Manutenibilidade' de um software?",
+      "answer": "É a medida da facilidade com que um programa pode ser corrigido, adaptado a novas necessidades ou aprimorado. Uma medida comum é o MTTC (Tempo Médio para a Mudança).",
+      "category": "Métricas de Software"
+    },
+    {
+      "id": "1751290310030",
+      "question": "Qual é a principal causa da maioria dos problemas de manutenção de software?",
+      "answer": "Deficiências na maneira como o software foi planejado e desenvolvido, como falta de documentação, código difícil de entender e projeto que não foi pensado para suportar alterações.",
+      "category": "Manutenção de Software"
+    },
+    {
+      "id": "1751290310031",
+      "question": "No triângulo 'Custo x Tempo x Qualidade', o que acontece se o prazo (Tempo) para entrega de um projeto for drasticamente reduzido?",
+      "answer": "Geralmente, isso resulta em um aumento do Custo (para alocar mais pessoas/recursos) e/ou uma diminuição da Qualidade (menos tempo para testes e refinamento).",
+      "category": "Qualidade de Software"
+    },
+    {
+      "id": "1751290310032",
+      "question": "O que é o Teste de Portabilidade?",
+      "answer": "Verifica se é possível utilizar o software em diversas plataformas (hardware, sistemas operacionais) com um pequeno esforço de adaptação, assegurando que ele não está preso a um único ambiente.",
+      "category": "Teste de Software"
+    },
+    {
+      "id": "1751290310033",
+      "question": "Qual é a característica do Nível 1 (Inicial) do CMMI?",
+      "answer": "O processo é caótico e imprevisível. O sucesso depende mais do empenho e heroísmo individual dos membros da equipe do que de processos maduros e controlados.",
+      "category": "Qualidade de Software"
+    },
+    {
+      "id": "1751290310034",
+      "question": "O que é o Teste de Concorrência?",
+      "answer": "Valida a capacidade do sistema de lidar com múltiplos usuários ou processos requisitando os mesmos recursos (dados, memória) ao mesmo tempo, sem gerar conflitos ou corrupção de dados.",
+      "category": "Teste de Software"
+    }
+  ],
+  "history": []
+}
